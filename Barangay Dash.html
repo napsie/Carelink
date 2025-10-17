@@ -453,49 +453,6 @@
             border-top: 1px solid #e0e0e0;
         }
 
-        /* Filter Dropdown */
-        .filter-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .filter-dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .filter-dropdown-content button {
-            color: #333;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            width: 100%;
-            text-align: left;
-            border: none;
-            background: white;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .filter-dropdown-content button:hover {
-            background-color: #f1f1f1;
-        }
-
-        .filter-dropdown-content button.active {
-            background-color: var(--secondary);
-            color: white;
-        }
-
-        .filter-dropdown:hover .filter-dropdown-content {
-            display: block;
-        }
-
         /* Responsive */
         @media (max-width: 992px) {
             .container {
@@ -582,12 +539,12 @@
             </div>
             <ul class="nav-links">
                 <li class="active"><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                <li><a href="#"><i class="fas fa-user-plus"></i> Submit Application</a></li>
-                <li><a href="#"><i class="fas fa-check-circle"></i> Verify Documents</a></li>
-                <li><a href="#"><i class="fas fa-search"></i> Track Applications</a></li>
-                <li><a href="#"><i class="fas fa-database"></i> Records</a></li>
-                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
-                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                <li><a href="Submit Application.html"><i class="fas fa-user-plus"></i> Submit Application</a></li>
+                <li><a href=""><i class="fas fa-check-circle"></i> Verify Documents</a></li>
+                <li><a href=""><i class="fas fa-search"></i> Track Applications</a></li>
+                <li><a href=""><i class="fas fa-database"></i> Records</a></li>
+                <li><a href=""><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href=""><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
         </div>
 
@@ -629,109 +586,76 @@
                         <canvas id="monthlyChart"></canvas>
                     </div>
                 </div>
+                
             </div>
 
             <!-- Records Section -->
             <div class="records-section">
                 <div class="records-header">
-                    <h2 style="color: var(--primary);">Application Records</h2>
+                    <h2>Application Records</h2>
                     <div class="records-actions">
-                        <div class="search-box">
-                            <i class="fas fa-search"></i>
-                            <input type="text" placeholder="Search records..." id="searchInput">
-                        </div>
-                        <div class="filter-dropdown">
-                            <button class="btn" id="filterBtn"><i class="fas fa-filter"></i> Filter</button>
-                            <div class="filter-dropdown-content">
-                                <button class="filter-option active" data-filter="all">All Applications</button>
-                                <button class="filter-option" data-filter="PWD">PWD Applications</button>
-                                <button class="filter-option" data-filter="Senior Citizen">Senior Citizen Applications</button>
-                            </div>
-                        </div>
-                        <button class="btn"><i class="fas fa-download"></i> Export</button>
+                        <a href="Submit Application.html" class="btn btn-accent">
+                            <i class="fas fa-plus"></i> Submit Application
+                        </a>
                     </div>
                 </div>
                 
                 <div class="records-table">
-                    <div class="table-header">
+                    <div class="table-header" style="grid-template-columns: 1.5fr 1fr 1.2fr 1fr 1fr;">
                         <div>Applicant Name</div>
                         <div>Application Type</div>
                         <div>Date Submitted</div>
                         <div>Status</div>
                         <div>ID Number</div>
-                        <div>Actions</div>
                     </div>
                     
-                    <div class="table-body">
-                        <div class="table-row" data-type="PWD">
-                            <div>Carlos Mendoza</div>
-                            <div>PWD</div>
-                            <div>01/05/2024</div>
-                            <div><span class="application-status status-rejected">Rejected</span></div>
-                            <div>PWD-004</div>
-                            <div>
-                                <button class="btn btn-small"><i class="fas fa-eye"></i> View</button>
-                                <button class="btn btn-small"><i class="fas fa-edit"></i> Edit</button>
-                            </div>
-                        </div>
-                        
-                        <div class="table-row" data-type="Senior Citizen">
-                            <div>Maria Santos</div>
-                            <div>Senior Citizen</div>
-                            <div>01/08/2024</div>
-                            <div><span class="application-status status-pending">Pending</span></div>
-                            <div>SC-012</div>
-                            <div>
-                                <button class="btn btn-small"><i class="fas fa-eye"></i> View</button>
-                                <button class="btn btn-small"><i class="fas fa-edit"></i> Edit</button>
-                            </div>
-                        </div>
-                        
-                        <div class="table-row" data-type="PWD">
-                            <div>Juan Dela Cruz</div>
-                            <div>PWD</div>
-                            <div>01/10/2024</div>
-                            <div><span class="application-status status-sent">Sent to City Hall</span></div>
-                            <div>PWD-007</div>
-                            <div>
-                                <button class="btn btn-small"><i class="fas fa-eye"></i> View</button>
-                                <button class="btn btn-small"><i class="fas fa-edit"></i> Edit</button>
-                            </div>
-                        </div>
-                        
-                        <div class="table-row" data-type="Senior Citizen">
-                            <div>Elena Garcia</div>
-                            <div>Senior Citizen</div>
-                            <div>01/12/2024</div>
-                            <div><span class="application-status status-verified">Verified</span></div>
-                            <div>SC-015</div>
-                            <div>
-                                <button class="btn btn-small"><i class="fas fa-eye"></i> View</button>
-                                <button class="btn btn-small"><i class="fas fa-edit"></i> Edit</button>
-                            </div>
-                        </div>
-                        
-                        <div class="table-row" data-type="PWD">
-                            <div>Roberto Santos</div>
-                            <div>PWD</div>
-                            <div>01/15/2024</div>
-                            <div><span class="application-status status-pending">Pending</span></div>
-                            <div>PWD-021</div>
-                            <div>
-                                <button class="btn btn-small"><i class="fas fa-eye"></i> View</button>
-                                <button class="btn btn-small"><i class="fas fa-edit"></i> Edit</button>
-                            </div>
-                        </div>
+                    <div class="table-row" style="grid-template-columns: 1.5fr 1fr 1.2fr 1fr 1fr;">
+                        <div>Carlos Mendoza</div>
+                        <div>PWD</div>
+                        <div>01/05/2024</div>
+                        <div><span class="application-status status-rejected">Rejected</span></div>
+                        <div>PWD-004</div>
+                    </div>
+                    
+                    <div class="table-row" style="grid-template-columns: 1.5fr 1fr 1.2fr 1fr 1fr;">
+                        <div>Maria Santos</div>
+                        <div>Senior Citizen</div>
+                        <div>01/08/2024</div>
+                        <div><span class="application-status status-pending">Pending</span></div>
+                        <div>SC-012</div>
+                    </div>
+                    
+                    <div class="table-row" style="grid-template-columns: 1.5fr 1fr 1.2fr 1fr 1fr;">
+                        <div>Juan Dela Cruz</div>
+                        <div>PWD</div>
+                        <div>01/10/2024</div>
+                        <div><span class="application-status status-sent">Sent to City Hall</span></div>
+                        <div>PWD-007</div>
+                    </div>
+                    
+                    <div class="table-row" style="grid-template-columns: 1.5fr 1fr 1.2fr 1fr 1fr;">
+                        <div>Elena Garcia</div>
+                        <div>Senior Citizen</div>
+                        <div>01/12/2024</div>
+                        <div><span class="application-status status-verified">Verified</span></div>
+                        <div>SC-015</div>
+                    </div>
+                    
+                    <div class="table-row" style="grid-template-columns: 1.5fr 1fr 1.2fr 1fr 1fr;">
+                        <div>Roberto Santos</div>
+                        <div>PWD</div>
+                        <div>01/15/2024</div>
+                        <div><span class="application-status status-pending">Pending</span></div>
+                        <div>PWD-021</div>
                     </div>
                     
                     <div class="table-pagination">
-                        <div id="recordCount">Showing 1-5 of 5 records</div>
+                        <div>Showing 1-5 of 24 records</div>
                         <div class="pagination-controls">
                             <button class="pagination-btn"><i class="fas fa-chevron-left"></i></button>
                             <button class="pagination-btn active">1</button>
                             <button class="pagination-btn">2</button>
                             <button class="pagination-btn">3</button>
-                            <button class="pagination-btn">4</button>
                             <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
                         </div>
                     </div>
@@ -844,66 +768,6 @@
             }
             
             welcomeMessage.innerHTML = `${greeting}, <strong>Barangay Staff</strong>!`;
-            
-            // Filter functionality
-            const filterOptions = document.querySelectorAll('.filter-option');
-            const tableRows = document.querySelectorAll('.table-row');
-            const searchInput = document.getElementById('searchInput');
-            const recordCount = document.getElementById('recordCount');
-            
-            let currentFilter = 'all';
-            let currentSearch = '';
-            
-            // Filter option click handler
-            filterOptions.forEach(option => {
-                option.addEventListener('click', function() {
-                    // Update active filter
-                    filterOptions.forEach(opt => opt.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Update current filter
-                    currentFilter = this.getAttribute('data-filter');
-                    
-                    // Apply filters
-                    applyFilters();
-                });
-            });
-            
-            // Search input handler
-            searchInput.addEventListener('input', function() {
-                currentSearch = this.value.toLowerCase();
-                applyFilters();
-            });
-            
-            // Apply both filter and search
-            function applyFilters() {
-                let visibleCount = 0;
-                
-                tableRows.forEach(row => {
-                    const type = row.getAttribute('data-type');
-                    const name = row.children[0].textContent.toLowerCase();
-                    const applicationType = row.children[1].textContent.toLowerCase();
-                    
-                    const matchesFilter = currentFilter === 'all' || type === currentFilter;
-                    const matchesSearch = currentSearch === '' || 
-                                         name.includes(currentSearch) || 
-                                         applicationType.includes(currentSearch);
-                    
-                    if (matchesFilter && matchesSearch) {
-                        row.style.display = 'grid';
-                        visibleCount++;
-                    } else {
-                        row.style.display = 'none';
-                    }
-                });
-                
-                // Update record count
-                const totalCount = tableRows.length;
-                recordCount.textContent = `Showing ${visibleCount} of ${totalCount} records`;
-            }
-            
-            // Initialize with all records visible
-            applyFilters();
         });
 
         function initializeCharts() {

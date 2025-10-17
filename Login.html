@@ -409,8 +409,8 @@
             
             // Simple validation for demo purposes
             if (password === 'password') {
-                alert(`Login successful!\nWelcome ${username}\nRole: ${role}`);
-                // In a real application, you would redirect to the appropriate dashboard
+                // Redirect to Barangay Dash.html after successful login
+                window.location.href = "Barangay Dash.html";
             } else {
                 alert('Invalid credentials. Please try again.');
             }
